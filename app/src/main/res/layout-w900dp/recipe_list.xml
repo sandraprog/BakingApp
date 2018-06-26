@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:baselineAligned="false"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="horizontal"
+    android:showDividers="middle"
+    tools:context="com.sandraprog.bakingapp.RecipeListActivity">
+
+    <!--
+    This layout is a two-pane layout for the Recipes
+    master/detail flow.
+    
+    -->
+    <LinearLayout
+        android:name="com.sandraprog.bakingapp.RecipeListFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ingredients_text"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/text_margin_small"
+            android:textSize="@dimen/caption_text_size"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ingredient_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin_small"/>
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/steps_text"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/text_margin_small"
+            android:textSize="@dimen/caption_text_size"/>
+
+        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/step_list"
+
+            android:layout_width="@dimen/item_width"
+            android:layout_height="match_parent"
+
+            app:layoutManager="LinearLayoutManager"
+            tools:context="com.sandraprog.bakingapp.RecipeListActivity"
+            tools:listitem="@layout/step_list_content" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/recipe_detail_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3" />
+
+</LinearLayout>
